@@ -86,7 +86,7 @@ add_action( 'widgets_init', 'ip_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ip_theme_scripts() {
-	wp_enqueue_style( 'ip-theme-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'ip-theme-style', get_template_directory_uri() . '/assets/css/style.min.css', array(), '' );
 
 	wp_enqueue_script( 'ip-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
