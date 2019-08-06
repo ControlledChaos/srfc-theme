@@ -8,4 +8,4 @@ A WordPress/ClassicPress theme built specifically for the Sequoia Riverfront Cab
 ![ACF Pro Ready](https://img.shields.io/badge/ACF%20Pro-ready-00d3ae.svg?style=flat-square)
 ![Gutenberg Ready](https://img.shields.io/badge/Gutenberg-ready-00a0d2.svg?style=flat-square)
 
-![Sequoia Riverfront Cabins theme screenshot]()
+![Sequoia Riverfront Cabins theme screenshot](https://raw.githubusercontent.com/ControlledChaos/srfc-theme/master/screenshot.jpg?token=ABNG6H632H6TF6E2J3UJA2S5JDVWO)
