@@ -5,7 +5,7 @@
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 /*
@@ -22,16 +22,16 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-			$ip_theme_comment_count = get_comments_number();
-			if ( '1' === $ip_theme_comment_count ) {
+			$srfc_theme_comment_count = get_comments_number();
+			if ( '1' === $srfc_theme_comment_count ) {
 				printf(
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'ip-theme' ),
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'srfc-theme' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf(
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $ip_theme_comment_count, 'comments title', 'ip-theme' ) ),
-					number_format_i18n( $ip_theme_comment_count ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $srfc_theme_comment_count, 'comments title', 'srfc-theme' ) ),
+					number_format_i18n( $srfc_theme_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			}
@@ -55,7 +55,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'ip-theme' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'srfc-theme' ); ?></p>
 			<?php
 		endif;
 

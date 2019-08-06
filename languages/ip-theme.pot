@@ -75,27 +75,27 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: inc/template-tags.php:52
+#: includes/template-tags.php:52
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:55
+#: includes/template-tags.php:55
 #. translators: 1: list of categories.
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:62
+#: includes/template-tags.php:62
 #. translators: 1: list of tags.
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:72
+#: includes/template-tags.php:72
 #. translators: %s: post title
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:89 template-parts/content-page.php:35
+#: includes/template-tags.php:89 template-parts/content-page.php:35
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
@@ -167,19 +167,19 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:29
+#: includes/template-tags.php:29
 #. translators: %s: post date.
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:35
+#: includes/template-tags.php:35
 #. translators: %s: post author.
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:59
+#: includes/template-tags.php:59
 #. translators: used between list items, there is a space after the comma
 msgctxt "list item separator"
 msgid ", "

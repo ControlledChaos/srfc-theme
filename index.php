@@ -2,7 +2,7 @@
 /**
  * The main template file
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 get_header(); ?>

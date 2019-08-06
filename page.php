@@ -2,7 +2,7 @@
 /**
  * The template for displaying all pages
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 get_header(); ?>

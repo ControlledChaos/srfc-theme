@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 get_header(); ?>

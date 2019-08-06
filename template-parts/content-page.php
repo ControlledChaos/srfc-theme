@@ -2,7 +2,7 @@
 /**
  * Template part for displaying page content in page.php
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 ?>
@@ -12,14 +12,14 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>
 
-	<?php ip_theme_post_thumbnail(); ?>
+	<?php srfc_theme_post_thumbnail(); ?>
 
 	<div class="entry-content" itemprop="articleBody">
 		<?php
 		the_content();
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ip-theme' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'srfc-theme' ),
 			'after'  => '</div>',
 		) );
 		?>
@@ -31,7 +31,7 @@
 			edit_post_link(
 				sprintf(
 					wp_kses(
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'ip-theme' ),
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'srfc-theme' ),
 						array(
 							'span' => array(
 								'class' => array(),

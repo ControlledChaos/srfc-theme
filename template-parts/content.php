@@ -2,7 +2,7 @@
 /**
  * Template part for displaying posts
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 ?>
@@ -20,20 +20,20 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				ip_theme_posted_on();
-				ip_theme_posted_by();
+				srfc_theme_posted_on();
+				srfc_theme_posted_by();
 				?>
 			</div>
 		<?php endif; ?>
 	</header>
 
-	<?php ip_theme_post_thumbnail(); ?>
+	<?php srfc_theme_post_thumbnail(); ?>
 
 	<div class="entry-content" itemprop="articleBody">
 		<?php
 		the_content( sprintf(
 			wp_kses(
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ip-theme' ),
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'srfc-theme' ),
 				array(
 					'span' => array(
 						'class' => array(),
@@ -44,13 +44,13 @@
 		) );
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ip-theme' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'srfc-theme' ),
 			'after'  => '</div>',
 		) );
 		?>
 	</div>
 
 	<footer class="entry-footer">
-		<?php ip_theme_entry_footer(); ?>
+		<?php srfc_theme_entry_footer(); ?>
 	</footer>
 </article>

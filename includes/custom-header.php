@@ -6,36 +6,36 @@
  *
 	<?php the_header_image_tag(); ?>
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses ip_theme_header_style()
+ * @uses srfc_theme_header_style()
  */
-function ip_theme_custom_header_setup() {
+function srfc_theme_custom_header_setup() {
 
-	add_theme_support( 'custom-header', apply_filters( 'ip_theme_custom_header_args', array(
+	add_theme_support( 'custom-header', apply_filters( 'srfc_theme_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'ip_theme_header_style',
+		'wp-head-callback'       => 'srfc_theme_header_style',
 	) ) );
 
 }
-add_action( 'after_setup_theme', 'ip_theme_custom_header_setup' );
+add_action( 'after_setup_theme', 'srfc_theme_custom_header_setup' );
 
-if ( ! function_exists( 'ip_theme_header_style' ) ) :
+if ( ! function_exists( 'srfc_theme_header_style' ) ) :
 
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see ip_theme_custom_header_setup().
+	 * @see srfc_theme_custom_header_setup().
 	 */
-	function ip_theme_header_style() {
+	function srfc_theme_header_style() {
 
 		$header_text_color = get_header_textcolor();
 

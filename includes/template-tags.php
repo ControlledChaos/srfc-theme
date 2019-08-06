@@ -4,15 +4,15 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package IP_Theme
+ * @package SRFC_Theme
  */
 
 /**
  * Conditional Schema attributes for `<div id="page"`.
  */
-if ( ! function_exists( 'ip_site_schema' ) ) :
+if ( ! function_exists( 'srfc_site_schema' ) ) :
 
-	function ip_site_schema() {
+	function srfc_site_schema() {
 
 		// Change page slugs and template names as needed.
 		if ( is_page( 'about' ) || is_page( 'about-us' ) || is_page_template( 'page-about.php' ) || is_page_template( 'about.php' ) ) {
@@ -42,9 +42,9 @@ endif;
 /**
  * Prints HTML with meta information for the current post-date/time.
  */
-if ( ! function_exists( 'ip_theme_posted_on' ) ) :
+if ( ! function_exists( 'srfc_theme_posted_on' ) ) :
 
-	function ip_theme_posted_on() {
+	function srfc_theme_posted_on() {
 
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -60,7 +60,7 @@ if ( ! function_exists( 'ip_theme_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'ip-theme' ),
+			esc_html_x( 'Posted on %s', 'post date', 'srfc-theme' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -73,12 +73,12 @@ endif;
 /**
  * Prints HTML with meta information for the current author.
  */
-if ( ! function_exists( 'ip_theme_posted_by' ) ) :
+if ( ! function_exists( 'srfc_theme_posted_by' ) ) :
 
-	function ip_theme_posted_by() {
+	function srfc_theme_posted_by() {
 
 		$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'ip-theme' ),
+			esc_html_x( 'by %s', 'post author', 'srfc-theme' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -91,22 +91,22 @@ endif;
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-if ( ! function_exists( 'ip_theme_entry_footer' ) ) :
+if ( ! function_exists( 'srfc_theme_entry_footer' ) ) :
 
-	function ip_theme_entry_footer() {
+	function srfc_theme_entry_footer() {
 
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 
-			$categories_list = get_the_category_list( esc_html__( ', ', 'ip-theme' ) );
+			$categories_list = get_the_category_list( esc_html__( ', ', 'srfc-theme' ) );
 			if ( $categories_list ) {
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'ip-theme' ) . '</span>', $categories_list );
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'srfc-theme' ) . '</span>', $categories_list );
 			}
 
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'ip-theme' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'srfc-theme' ) );
 
 			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'ip-theme' ) . '</span>', $tags_list );
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'srfc-theme' ) . '</span>', $tags_list );
 			}
 
 		}
@@ -117,7 +117,7 @@ if ( ! function_exists( 'ip_theme_entry_footer' ) ) :
 			comments_popup_link(
 				sprintf(
 					wp_kses(
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'ip-theme' ),
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'srfc-theme' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -133,7 +133,7 @@ if ( ! function_exists( 'ip_theme_entry_footer' ) ) :
 		edit_post_link(
 			sprintf(
 				wp_kses(
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'ip-theme' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'srfc-theme' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -156,9 +156,9 @@ endif;
  * Wraps the post thumbnail in an anchor element on index views, or a div
  * element when on single views.
  */
-if ( ! function_exists( 'ip_theme_post_thumbnail' ) ) :
+if ( ! function_exists( 'srfc_theme_post_thumbnail' ) ) :
 
-	function ip_theme_post_thumbnail() {
+	function srfc_theme_post_thumbnail() {
 
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
