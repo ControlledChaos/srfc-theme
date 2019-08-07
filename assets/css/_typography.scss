@@ -4,6 +4,7 @@
 body {
 	background: #fff;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 1rem;
 	line-height: 1.5;
 	color: $body_text;
 }
@@ -20,6 +21,17 @@ p,
 ul,
 ol {
 	margin-top: 1em;
+}
+
+.site-title,
+h1,
+h2,
+h3 {
+	font-family: 'Zilla Slab', 'Roboto Slab', 'Hoefler Text', 'Baskerville Old Face', Garamond, 'Times New Roman', serif;
+}
+
+a {
+	color: $river;
 }
 
 .entry-content ul,

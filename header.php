@@ -4,7 +4,7 @@
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @package SRFC_Theme
+ * @package IP_Theme
  */
 
 if ( is_home() && ! is_front_page() ) {
@@ -41,13 +41,23 @@ if ( is_home() && ! is_front_page() ) {
 
 <body <?php body_class(); ?>>
 <div id="page" class="site" itemscope="itemscope" itemtype="<?php srfc_site_schema(); ?>">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'srfc-theme' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ip-theme' ); ?></a>
+
+	<nav id="site-navigation" class="main-navigation" role="directory" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'ip-theme' ); ?></button>
+		<?php
+		wp_nav_menu( array(
+			'theme_location' => 'menu-1',
+			'menu_id'        => 'primary-menu',
+		) );
+		?>
+	</nav>
 
 	<header id="masthead" class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
+			<div class="site-logo"><?php the_custom_logo(); ?></div>
+			<div class="site-title-description">
+			<?php if ( is_front_page() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php else : ?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
@@ -57,17 +67,7 @@ if ( is_home() && ! is_front_page() ) {
 				?>
 				<p class="site-description"><?php echo $srfc_theme_description; ?></p>
 			<?php endif; ?>
+			</div>
 		</div>
-
-		<nav id="site-navigation" class="main-navigation" role="directory" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'srfc-theme' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav>
 	</header>
-
 	<div id="content" class="site-content">

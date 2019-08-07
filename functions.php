@@ -192,19 +192,6 @@ final class Functions {
 			'caption'
 		 ] );
 
-		// Register post formats.
-		add_theme_support( 'post-formats', [
-			'aside',
-			'gscreenery',
-			'video',
-			'image',
-			'audio',
-			'link',
-			'quote',
-			'status',
-			'chat'
-		 ] );
-
 		/**
 		 * Color arguments.
 		 *
@@ -214,22 +201,22 @@ final class Functions {
 			[
 				'name'  => __( 'Dark Gray', 'srfc-theme' ),
 				'slug'  => 'srfc-dark-gray',
-				'color' => '#333333',
+				'color' => '#333333'
 			],
 			[
 				'name'  => __( 'Gray', 'srfc-theme' ),
 				'slug'  => 'srfc-gray',
-				'color' => '#888888',
+				'color' => '#888888'
 			],
 			[
 				'name'  => __( 'Pale Gray', 'srfc-theme' ),
 				'slug'  => 'srfc-pale-gray',
-				'color' => '#cccccc',
+				'color' => '#cccccc'
 			],
 			[
 				'name'  => __( 'White', 'srfc-theme' ),
 				'slug'  => 'srfc-white',
-				'color' => '#ffffff',
+				'color' => '#ffffff'
 			]
 		];
 
@@ -249,18 +236,6 @@ final class Functions {
 
 		// Customizer widget refresh support.
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// WooCommerce support.
-		add_theme_support( 'woocommerce' );
-		add_theme_support( 'wc-product-gallery-zoom' );
-		// TODO: add Fancybox to WC products.
-		// add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
-
-		// Beaver Builder support.
-		add_theme_support( 'fl-theme-builder-headers' );
-		add_theme_support( 'fl-theme-builder-footers' );
-		add_theme_support( 'fl-theme-builder-parts' );
 
 		// Featured image support.
 		add_theme_support( 'post-thumbnails' );
@@ -290,32 +265,24 @@ final class Functions {
 		}
 
 		/**
-		 * Add header image support.
-		 *
-		 * @since 1.0.0
+		 * Custom header for the front page.
 		 */
+		add_theme_support( 'custom-header', apply_filters( 'srfc_custom_header_args', [
+			'default-image'      => get_parent_theme_file_uri( '/assets/images/header.jpg' ),
+			'width'              => 2048,
+			'height'             => 878,
+			'flex-height'        => true,
+			'video'              => false,
+			'wp-head-callback'   => null
+		] ) );
 
-		// Header arguments.
-		$header_args = [
-			'default-image'          => '',
-			'width'                  => 1280,
-			'height'                 => 549,
-			'flex-height'            => true,
-			'flex-width'             => true,
-			'uploads'                => true,
-			'random-default'         => false,
-			'header-text'            => true,
-			'default-text-color'     => '',
-			'wp-head-callback'       => '',
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
-		];
-
-		// Apply a filter to header arguments.
-		$header = apply_filters( 'srfc_header_image', $header_args );
-
-		// Add header support.
-		add_theme_support( 'custom-header', $header );
+		register_default_headers( [
+			'default-image' => [
+				'url'           => '%s/assets/images/header.jpg',
+				'thumbnail_url' => '%s/assets/images/header.jpg',
+				'description'   => __( 'Default Header Image', 'srfc-theme' ),
+			],
+		] );
 
 		/**
 		 * Add logo support.
@@ -364,15 +331,6 @@ final class Functions {
 		 * @since 1.0.0
 		 */
 		add_editor_style( '/assets/css/editor-style.css', [ 'srfc-admin' ], '', 'screen' );
-
-		/**
-		 * Disable Jetpack open graph. We have the open graph tags in the theme.
-		 *
-		 * @since 1.0.0
-		 */
-		if ( class_exists( 'Jetpack' ) ) {
-			add_filter( 'jetpack_enable_opengraph', '__return_false', 99 );
-		}
 
 	}
 
@@ -470,6 +428,12 @@ final class Functions {
 	 */
 	public function frontend_styles() {
 
+		// Google fonts.
+		wp_enqueue_style( 'srfc-google-fonts', 'https://fonts.googleapis.com/css?family=Zilla+Slab:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap', [], '', 'screen' );
+
+		// Font Awesome icons.
+		wp_enqueue_style( 'srfc-icons', 'https://use.fontawesome.com/4da003b2b9.css', [], '', 'screen' );
+
 		/**
 		 * Theme sylesheet
 		 *
@@ -477,7 +441,7 @@ final class Functions {
 		 * The main stylesheet, in the root directory, only contains the theme header but
 		 * it is necessary for theme activation. DO NOT delete the main stylesheet!
 		 */
-		wp_enqueue_style( 'srfc-theme', get_template_directory_uri() . '/assets/css/style.min.css', array(), '' );
+		wp_enqueue_style( 'srfc-theme', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
 
 		// Print styles.
 		wp_enqueue_style( 'srfc-print', get_theme_file_uri( '/assets/css/print.min.css' ), [], '', 'print' );

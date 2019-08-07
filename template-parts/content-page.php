@@ -9,10 +9,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 	<header class="entry-header">
+		<?php srfc_theme_post_thumbnail(); ?>
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>
-
-	<?php srfc_theme_post_thumbnail(); ?>
 
 	<div class="entry-content" itemprop="articleBody">
 		<?php
@@ -24,26 +23,4 @@
 		) );
 		?>
 	</div>
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'srfc-theme' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer>
-	<?php endif; ?>
 </article>

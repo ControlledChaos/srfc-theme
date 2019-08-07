@@ -12,7 +12,7 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) :
 			the_post();
-			get_template_part( 'template-parts/content', 'page' );
+			get_template_part( 'template-parts/content', 'page-front' );
 		endwhile; // End of the loop.
 		?>
 
@@ -20,5 +20,4 @@ get_header(); ?>
 	</div>
 
 <?php
-get_sidebar();
 get_footer();

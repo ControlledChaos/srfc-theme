@@ -1,12 +1,44 @@
 /**
  * Header
  */
- .site-title {
-	/* Match <p> tag to <h1> tag on front page */
-	font-size: 2em;
-	font-weight: bold;
+.site-header {
+	margin-top: 1rem;
 }
 
-.site-title a {
-	text-decoration: none;
+.site-branding {
+	width: 100%;
+	display: flex;
+	align-items: last baseline;
+
+	.site-title,
+	.site-description {
+		margin-top: 0;
+		line-height: 1;
+	}
+
+	.site-title {
+		font-size: 2.875rem;
+		font-weight: bold;
+		font-weight: 600;
+
+		a {
+			text-decoration: none;
+			color: $oak;
+		}
+	}
+
+	.site-description {
+		margin-top: 0.5rem;
+		font-family: 'Zilla Slab', 'Roboto Slab', 'Hoefler Text', 'Baskerville Old Face', Garamond, 'Times New Roman', serif;
+		font-size: 1.625rem;
+		font-weight: 500;
+		font-style: italic;
+		color: $rock;
+	}
+
+	.custom-logo {
+		display: block;
+		max-width: 140px;
+		margin-right: 1.5em;
+	}
 }

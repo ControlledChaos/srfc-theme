@@ -118,11 +118,11 @@ if ( ! function_exists( 'srfc_theme_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'srfc-theme' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
+						[
+							'span' => [
+								'class' => [],
+							],
+						]
 					),
 					get_the_title()
 				)
@@ -134,11 +134,11 @@ if ( ! function_exists( 'srfc_theme_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'srfc-theme' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
+					[
+						'span' => [
+							'class' => [],
+						],
+					]
 				),
 				get_the_title()
 			),
@@ -164,8 +164,7 @@ if ( ! function_exists( 'srfc_theme_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( is_singular() ) :
-			?>
+		if ( is_singular() ) : ?>
 
 			<div class="post-thumbnail">
 				<?php the_post_thumbnail(); ?>
@@ -175,12 +174,11 @@ if ( ! function_exists( 'srfc_theme_post_thumbnail' ) ) :
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
-			the_post_thumbnail( 'post-thumbnail', array(
-				'alt' => the_title_attribute( array(
+			the_post_thumbnail( 'post-thumbnail', [
+				'alt' => the_title_attribute( [
 					'echo' => false,
-				) ),
-			) );
-			?>
+				] ),
+			] ); ?>
 		</a>
 
 		<?php
