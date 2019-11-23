@@ -1,14 +1,73 @@
 /**
  * Header
  */
-.site-header {
-	margin-top: 1rem;
+.header-nav-wrap {
+	padding: 1rem 0;
+	width: 100%;
+	z-index: 9999;
+	background: #fff;
+	opacity: 1;
+
+	.global-wrapper {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	&.header-nav-scrolled {
+		opacity: 0;
+		transition: opacity ease-in .35s;
+
+		&.header-nav-sticky {
+			justify-content: space-between;
+			position: fixed;
+			top: 0;
+			left: 0;
+			opacity: 1;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+			border-bottom: solid 1px $pale_gray;
+
+			.global-wrapper {
+				display: flex;
+				flex-direction: column-reverse;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.site-branding {
+				align-items: center;
+
+				.custom-logo {
+					max-width: 60px;
+				}
+
+				.site-title {
+					font-size: $px30;
+				}
+
+				.site-description {
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 .site-branding {
 	width: 100%;
 	display: flex;
 	align-items: last baseline;
+
+	a {
+		text-decoration: none;
+
+		.site-title {
+			color: $oak;
+		}
+
+		.site-description {
+			color: $rock;
+		}
+	}
 
 	.site-title,
 	.site-description {
@@ -20,11 +79,7 @@
 		font-size: 2.875rem;
 		font-weight: bold;
 		font-weight: 600;
-
-		a {
-			text-decoration: none;
-			color: $oak;
-		}
+		color: $oak;
 	}
 
 	.site-description {
@@ -40,5 +95,25 @@
 		display: block;
 		max-width: 140px;
 		margin-right: 1.5em;
+	}
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.header-nav-wrap {
+
+		.global-wrapper {
+			flex-direction: column;
+		}
+
+		&.header-nav-scrolled {
+
+			&.header-nav-sticky {
+
+				.global-wrapper {
+					flex-direction: row-reverse;
+				}
+			}
+		}
 	}
 }

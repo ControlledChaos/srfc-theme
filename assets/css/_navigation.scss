@@ -2,8 +2,10 @@
  * Navigation
  */
 .main-navigation {
-	width: 100%;
-	padding: 1rem 0;
+
+	.nav-wrap {
+		padding: 0 2em;
+	}
 
 	ul {
 		display: none;
@@ -51,29 +53,24 @@
 	a {
 		display: inline-block;
 		text-decoration: none;
+		color: $oak;
+		transition: color .15s;
+
+		&:hover,
+		&:focus {
+			color: $river;
+		}
 	}
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.header-nav-wrap.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
-
-	.main-navigation div > ul > li {
-		display: inline;
-		position: relative;
-		margin-right: 1em;
-	}
+.menu-toggle {
+	display: none;
 }
 
 .site-main .comment-navigation, .site-main
@@ -96,4 +93,42 @@
 	float: right;
 	text-align: right;
 	width: 50%;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation {
+
+		&.navigation-scrolled {
+
+			.nav-wrap {
+				flex-direction: row;
+			}
+		}
+
+		ul {
+			display: flex;
+		}
+
+		div > ul > li:not(:last-of-type) {
+			display: inline;
+			position: relative;
+			margin-right: 1em;
+		}
+	}
+}
+
+@media screen and (max-width: 782px) {
+	.logged-in.admin-bar .main-navigation.navigation-scrolled {
+		padding-top: 64px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.logged-in.admin-bar .main-navigation.navigation-scrolled {
+		padding-top: 64px;
+	}
 }

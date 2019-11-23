@@ -7,7 +7,7 @@
 ( function() {
 	var container, button, menu, links, i, len;
 
-	container = document.getElementById( 'site-navigation' );
+	container = document.getElementById( 'header-nav-wrap' );
 	if ( ! container ) {
 		return;
 	}
@@ -104,3 +104,60 @@
 		}
 	}( container ) );
 } )();
+
+/**
+ * Show/hide navbar on scroll
+ *
+var didScroll;
+var lastScrollTop = 0;
+var delta = 300;
+var navbarHeight = jQuery( '.main-navigation' ).outerHeight( true );
+
+jQuery(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 50);
+
+function hasScrolled() {
+    var st = jQuery(this).scrollTop();
+
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+
+    if (st > lastScrollTop && st > navbarHeight){
+        jQuery( '.header-nav-wrap' ).addClass( 'scrolling-down' );
+    } else {
+        if(st + jQuery(window).height() < jQuery(document).height()) {
+            jQuery( '.header-nav-wrap' ).removeClass( 'scrolling-down' );
+        }
+    }
+
+    lastScrollTop = st;
+}
+
+/**
+ * Add "scrolled" class to nav bar
+ */
+jQuery(window).scroll(function() {
+	var scroll = jQuery(window).scrollTop();
+
+	if (scroll >= 50) {
+		jQuery( 'body' ).addClass( 'scrolled' );
+		jQuery( '.header-nav-wrap' ).addClass( 'header-nav-scrolled' );
+	} else {
+		jQuery( 'body' ).removeClass( 'scrolled' );
+		jQuery( '.header-nav-wrap' ).removeClass( 'header-nav-scrolled' );
+	}
+
+	if (scroll >= 60) {
+		jQuery( '.header-nav-wrap' ).addClass( 'header-nav-sticky' );
+	} else {
+		jQuery( '.header-nav-wrap' ).removeClass( 'header-nav-sticky' );
+	}
+});

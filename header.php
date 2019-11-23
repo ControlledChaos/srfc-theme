@@ -1,12 +1,13 @@
 <?php
 /**
- * The header for our theme
+ * The header for the theme
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @package IP_Theme
+ * @package    WordPress
+ * @subpackage Sequoia_Riverfront_Cabins
+ * @since      1.0.0
  */
 
+// Set up connonical URL.
 if ( is_home() && ! is_front_page() ) {
     $canonical = get_permalink( get_option( 'page_for_posts' ) );
 } elseif ( is_archive() ) {
@@ -42,32 +43,24 @@ if ( is_home() && ! is_front_page() ) {
 <body <?php body_class(); ?>>
 <div id="page" class="site" itemscope="itemscope" itemtype="<?php srfc_site_schema(); ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ip-theme' ); ?></a>
-
-	<nav id="site-navigation" class="main-navigation" role="directory" itemscope itemtype="http://schema.org/SiteNavigationElement">
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'ip-theme' ); ?></button>
-		<?php
-		wp_nav_menu( array(
-			'theme_location' => 'menu-1',
-			'menu_id'        => 'primary-menu',
-		) );
-		?>
-	</nav>
-
-	<header id="masthead" class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
-		<div class="site-branding">
-			<div class="site-logo"><?php the_custom_logo(); ?></div>
-			<div class="site-title-description">
-			<?php if ( is_front_page() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php endif;
-			$srfc_theme_description = get_bloginfo( 'description', 'display' );
-			if ( $srfc_theme_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $srfc_theme_description; ?></p>
-			<?php endif; ?>
-			</div>
+	<div id="header-nav-wrap" class="header-nav-wrap">
+		<div class="global-wrapper">
+			<nav id="site-navigation" class="main-navigation" role="directory" itemscope itemtype="http://schema.org/SiteNavigationElement">
+				<div class="nav-wrap">
+					<?php wp_nav_menu( [
+						'theme_location' => 'main',
+						'menu_id'        => 'primary-menu'
+					] ); ?>
+				</div>
+			</nav>
+			<header id="masthead" class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+				<?php if ( is_front_page() ) {
+					get_template_part( 'template-parts/site-branding', 'front-page' );
+				} else {
+					get_template_part( 'template-parts/site-branding' );
+				} ?>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'ip-theme' ); ?></button>
+			</header>
 		</div>
-	</header>
+	</div>
 	<div id="content" class="site-content">

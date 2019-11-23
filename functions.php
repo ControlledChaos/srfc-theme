@@ -217,6 +217,21 @@ final class Functions {
 				'name'  => __( 'White', 'srfc-theme' ),
 				'slug'  => 'srfc-white',
 				'color' => '#ffffff'
+			],
+			[
+				'name'  => __( 'Error Red', 'bs-theme' ),
+				'slug'  => 'srfc-error',
+				'color' => '#dc3232',
+			],
+			[
+				'name'  => __( 'Warning Yellow', 'bs-theme' ),
+				'slug'  => 'srfc-warning',
+				'color' => '#ffb900',
+			],
+			[
+				'name'  => __( 'Success Green', 'bs-theme' ),
+				'slug'  => 'srfc-success',
+				'color' => '#46b450',
 			]
 		];
 
@@ -399,9 +414,9 @@ final class Functions {
 
 		wp_enqueue_script( 'jquery' );
 
-		wp_enqueue_script( 'srfc-theme-navigation', get_theme_file_uri(  '/assets/js/navigation.js', [], '', true ) );
+		wp_enqueue_script( 'srfc-theme-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], '', true );
 
-		wp_enqueue_script( 'srfc-theme-skip-link-focus-fix', get_theme_file_uri(  '/assets/js/skip-link-focus-fix.js', [], '', true ) );
+		wp_enqueue_script( 'srfc-theme-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], '', true );
 
 		// Comments scripts.
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

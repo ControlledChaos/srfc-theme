@@ -30,12 +30,12 @@ if ( $heading ) {
 } elseif ( is_customize_preview() ) {
 	$heading = sprintf(
 		'<h3>%1s</h3>',
-		__( '', 'seq-pac-theme' )
+		__( 'Welcome to Three Rivers, California', 'srfc-theme' )
 	);
 } else {
 	$heading = sprintf(
 		'<h3>%1s</h3>',
-		__( '', 'seq-pac-theme' )
+		__( 'Welcome to Three Rivers, California', 'srfc-theme' )
 	);
 }
 
@@ -43,9 +43,9 @@ if ( $heading ) {
 if ( $message ) {
 	$message = $message;
 } else {
-	$message = srfcintf(
+	$message = sprintf(
 		'<p>%1s</p>',
-		__( 'Three Rivers, Exeter, Porterville, Visalia, and Tulare County, California', 'seq-pac-theme' )
+		__( 'Enjoy our rustic cabins with prime river access', 'srfc-theme' )
 	);
 }
 
@@ -56,7 +56,7 @@ if ( $message ) {
 		<?php the_custom_header_markup(); ?>
 	</div>
 	<div class="front-page-hero-content">
-		<div class="global-wrapper">
+		<div class="global-wrapper hero-wrapper">
 			<?php echo $heading; ?>
 			<?php echo $message; ?>
 		</div>
